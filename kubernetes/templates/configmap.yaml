@@ -8,7 +8,8 @@ metadata:
     prometheus: {{ .Release.Name }}
     release: {{ .Release.Name }}
     role: alert-rules
-  name: {{ template "exporter-kubelets.fullname" . }}
+  name: {{ template "exporter-kubelets.name" . }}
+  namespace: {{ .Release.Namespace }}
 data:
 {{- if .Values.prometheusRules }}
 {{- $root := . }}
